@@ -1,0 +1,57 @@
+{
+  "name": "acceleott-backend",
+  "version": "1.0.0",
+  "description": "Production-ready backend server for the Acceleott platform.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon server.js",
+    "client": "cd ../acceleott-mueller && npm run dev",
+    "start": "node server.js",
+    "lint": "eslint . --ext .js,.jsx,.mjs"
+  },
+  "keywords": [
+    "acceleott",
+    "backend",
+    "nodejs",
+    "express",
+    "api",
+    "mongodb",
+    "production"
+  ],
+  "author": "Acceleott Team",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "4.1",
+    "mongoose": "^8.18.1",
+    "nodemailer": "^6.10.1",
+    "resend": "^6.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "eslint": "^9.13.0",
+    "nodemon": "^3.1.10"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Acceleott/acceleott-backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Acceleott/acceleott-backend/issues"
+  },
+  "homepage": "https://acceleott.com",
+  "vercel-build": {
+    "use": "@vercel/node",
+    "src": "server.js"
+  }
+}
