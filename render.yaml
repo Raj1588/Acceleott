@@ -1,0 +1,30 @@
+services:
+  # 🧠 Backend API (Express.js)
+  - type: web
+    name: acceleott-backend
+    env: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+
+  # 💻 Frontend (Next.js)
+  - type: web
+    name: acceleott-mueller
+    env: node
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_API_URL
+        value: https://acceleott-backend.onrender.com
